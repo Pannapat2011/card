@@ -24,10 +24,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16p
 .band{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--on-navy);padding:22px 28px 84px;position:relative}
 .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--gold)}
 .band .eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.head{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:0 28px;margin-top:-64px;position:relative;align-items:end}
+.head{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:0 28px;margin-top:-64px;position:relative;align-items:start}
 .photo{width:150px;aspect-ratio:240/315;max-width:100%;border-radius:4px;border:4px solid var(--paper);outline:1px solid var(--gold);
   background:var(--line) center/cover no-repeat;box-shadow:0 6px 18px -8px rgba(0,0,0,.4)}
-.name{min-width:0;padding-bottom:4px}
+.name{min-width:0;padding-top:80px}
 .rank{font-size:.9rem;color:var(--gold);font-weight:600;letter-spacing:.04em}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,4.5vw,2.2rem);line-height:1.25;margin:2px 0 4px;text-wrap:balance}
 .role{color:var(--muted);font-size:1rem}
@@ -89,6 +89,7 @@ footer{background:var(--navy);color:var(--on-navy);padding:14px 28px;font-size:.
   .band{padding:18px 18px 76px}
   .head{grid-template-columns:1fr;justify-items:center;text-align:center;padding:0 18px}
   .photo{width:132px}
+  .name{padding-top:8px}
   section{padding:20px 18px}
   .c{grid-template-columns:1fr auto}
   .c .k{grid-column:1/-1;margin-bottom:-6px}
