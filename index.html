@@ -45,9 +45,10 @@ h2::before{content:"";width:18px;height:2px;background:var(--gold)}
 .c .v{font-weight:500;min-width:0;overflow-wrap:anywhere;user-select:all}
 .c a{color:inherit;text-decoration:none}
 .c a:hover{text-decoration:underline}
-button.copy{font:inherit;font-size:.82rem;padding:5px 12px;border-radius:3px;border:1px solid var(--gold);background:transparent;color:var(--ink);cursor:pointer}
-button.copy:hover{background:var(--gold-soft)}
-button.copy:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+a.copy{text-decoration:none!important;text-align:center}
+.copy{font:inherit;font-size:.82rem;padding:5px 12px;border-radius:3px;border:1px solid var(--gold);background:transparent;color:var(--ink);cursor:pointer}
+.copy:hover{background:var(--gold-soft)}
+.copy:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
 .tag{font-size:.88rem;padding:4px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg)}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -59,6 +60,28 @@ dl.reg{margin:0;display:grid;gap:0}
 .reg dt small{display:block;color:var(--muted);font-size:.85rem}
 .reg dd{margin:0;font-family:var(--display);font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
 address{font-style:normal}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.badge{font-size:.78rem;padding:3px 10px;border-radius:3px;background:var(--gold-soft);color:var(--ink);border:1px solid var(--gold)}
+.note{margin:-4px 0 14px;color:var(--muted);font-size:.88rem}
+.quals{display:grid;gap:14px}
+.qual{display:grid;grid-template-columns:84px 1fr;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.lvl{background:linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--on-navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 6px;border-right:3px solid var(--gold)}
+.lvl span{font-size:.72rem;letter-spacing:.08em;opacity:.8}
+.lvl b{font-family:var(--display);font-size:2.6rem;line-height:1.1;color:var(--gold);font-variant-numeric:tabular-nums}
+.qbody{padding:14px 18px;min-width:0}
+.occ{font-family:var(--display);font-size:1.15rem;font-weight:600;margin:0;line-height:1.35}
+.occ-en{color:var(--muted);font-size:.9rem;margin-bottom:10px}
+dl.meta{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+.meta dt{font-size:.75rem;color:var(--muted);letter-spacing:.04em}
+.meta dd{margin:0;font-size:.92rem;font-weight:500;line-height:1.45}
+.meta dd small{display:block;font-weight:400;color:var(--muted);font-size:.8rem}
+details{margin-top:10px;font-size:.9rem}
+summary{cursor:pointer;color:var(--navy-2);font-weight:500}
+:root[data-theme="dark"] summary{color:var(--gold)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) summary{color:var(--gold)}}
+details ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+.certno{margin-top:10px;font-size:.75rem;color:var(--muted);overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.badges{justify-content:center}.qual{grid-template-columns:64px 1fr}.lvl b{font-size:2rem}.qbody{padding:12px 14px}dl.meta{grid-template-columns:1fr}}
 footer{background:var(--navy);color:var(--on-navy);padding:14px 28px;font-size:.82rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;opacity:.95}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--navy);color:var(--on-navy);
   padding:8px 16px;border-radius:4px;font-size:.9rem;border:1px solid var(--gold)}
@@ -86,6 +109,7 @@ footer{background:var(--navy);color:var(--on-navy);padding:14px 28px;font-size:.
       <div class="rank">ว่าที่พันตรี</div>
       <h1>ภูมิพัฒน์ เจียรประวัติ</h1>
       <div class="role">Phumipat Jainprawat · ที่ปรึกษาอิสระ / ผู้ให้คำแนะนำปรึกษาเชิงลึก</div>
+      <div class="badges"><span class="badge">คุณวุฒิวิชาชีพ ระดับ 6 · นักบูรณาการระบบการผลิต</span><span class="badge">คุณวุฒิวิชาชีพ ระดับ 5 · นักวินิจฉัยสถานประกอบการ</span></div>
     </div>
   </div>
 
@@ -100,7 +124,63 @@ footer{background:var(--navy);color:var(--on-navy);padding:14px 28px;font-size:.
     <div class="contacts">
       <div class="c"><span class="k">โทรศัพท์</span><a class="v" href="tel:0863112536">086-311-2536</a><button class="copy" id="cp-tel" data-copy="0863112536">คัดลอก</button></div>
       <div class="c"><span class="k">อีเมล</span><a class="v" href="mailto:Tassanai327@gmail.com">Tassanai327@gmail.com</a><button class="copy" id="cp-mail" data-copy="Tassanai327@gmail.com">คัดลอก</button></div>
+      <div class="c"><span class="k">อีเมล (สำรอง)</span><a class="v" href="mailto:14043@cgsc.ac.th">14043@cgsc.ac.th</a><button class="copy" id="cp-mail2" data-copy="14043@cgsc.ac.th">คัดลอก</button></div>
+      <div class="c"><span class="k">Facebook</span><a class="v" href="https://www.facebook.com/share/1HmyUQFnAM/" target="_blank" rel="noopener">ภูมิพัฒน์ เจียรประวัติ</a><a class="copy" href="https://www.facebook.com/share/1HmyUQFnAM/" target="_blank" rel="noopener">เปิดดู</a></div>
       <div class="c"><span class="k">LINE ID</span><span class="v">0863112536</span><button class="copy" id="cp-line" data-copy="0863112536">คัดลอก</button></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>คุณวุฒิวิชาชีพ</h2>
+    <p class="note">รับรองโดยสถาบันคุณวุฒิวิชาชีพ (องค์การมหาชน) · Thailand Professional Qualification Institute</p>
+    <div class="quals">
+      <article class="qual">
+        <div class="lvl"><span>ระดับ</span><b>6</b><span>Level</span></div>
+        <div class="qbody">
+          <h3 class="occ">นักบูรณาการระบบการผลิต</h3>
+          <div class="occ-en">Production Systems Integration Specialist</div>
+          <dl class="meta">
+            <div><dt>สาขาวิชาชีพ</dt><dd>หุ่นยนต์และระบบอัตโนมัติ<small>Robotics and Automation Systems</small></dd></div>
+            <div><dt>สาขา</dt><dd>ระบบอัตโนมัติ<small>Automation System</small></dd></div>
+            <div><dt>องค์กรรับรอง</dt><dd>สถาบันไทย-เยอรมัน<small>Thai-German Institute</small></dd></div>
+            <div><dt>ออกให้</dt><dd>14 พฤษภาคม 2569</dd></div>
+          </dl>
+          <details>
+            <summary>หน่วยสมรรถนะที่ผ่าน 5 หน่วย</summary>
+            <ul>
+              <li>วางแผนออกแบบและประสานรวมระบบไฟฟ้า ระบบสื่อสาร ระบบทางกล ของไลน์การผลิตอัตโนมัติ</li>
+              <li>ออกแบบและประสานรวมระบบไฟฟ้า ระบบสื่อสาร ระบบทางกล ของไลน์การผลิตอัตโนมัติ</li>
+              <li>ตรวจสอบการออกแบบและการประสานรวมระบบ</li>
+              <li>ปรับปรุงแก้ไขการออกแบบและการประสานรวมระบบ</li>
+              <li>รายงานการออกแบบและการประสานรวมระบบ</li>
+            </ul>
+          </details>
+          <div class="certno">เลขที่ OSCN-CB0020A/RAC-RAC-6-214100-B-26/034002</div>
+        </div>
+      </article>
+      <article class="qual">
+        <div class="lvl"><span>ระดับ</span><b>5</b><span>Level</span></div>
+        <div class="qbody">
+          <h3 class="occ">นักวินิจฉัยสถานประกอบการเบื้องต้น</h3>
+          <div class="occ-en">Diagnostician Occupation</div>
+          <dl class="meta">
+            <div><dt>สาขาวิชาชีพ</dt><dd>บริการอุตสาหกรรม<small>Industry Services</small></dd></div>
+            <div><dt>สาขา</dt><dd>การจัดการอุตสาหกรรม<small>Industrial Management</small></dd></div>
+            <div><dt>องค์กรรับรอง</dt><dd>สมาคมส่งเสริมเทคโนโลยี (ไทย-ญี่ปุ่น)<small>Technology Promotion Association (Thailand-Japan)</small></dd></div>
+            <div><dt>ออกให้</dt><dd>11 สิงหาคม 2569</dd></div>
+          </dl>
+          <details>
+            <summary>หน่วยสมรรถนะที่ผ่าน 4 หน่วย</summary>
+            <ul>
+              <li>เตรียมการก่อนสัมภาษณ์ข้อมูลสถานประกอบการ</li>
+              <li>สัมภาษณ์ผู้บริหารและผู้ที่เกี่ยวข้องกับการบริหารองค์กร</li>
+              <li>วิเคราะห์ข้อมูลเพื่อระบุปัญหาของสถานประกอบการเบื้องต้น</li>
+              <li>นำเสนอผลการวินิจฉัยและให้คำแนะนำเบื้องต้น</li>
+            </ul>
+          </details>
+          <div class="certno">เลขที่ OSCN-CB0347A/TAA-IDM-5-242100-A-26/052903</div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -121,7 +201,7 @@ footer{background:var(--navy);color:var(--on-navy);padding:14px 28px;font-size:.
   <section>
     <h2>การขึ้นทะเบียนที่ปรึกษา</h2>
     <dl class="reg">
-      <div class="row"><dt>ศูนย์ข้อมูลที่ปรึกษา สำนักงานบริหารหนี้สาธารณะ กระทรวงการคลัง<small>ประเภทที่ปรึกษาอิสระ</small></dt><dd>เลขที่ 5674 · ระดับ 3</dd></div>
+      <div class="row"><dt>ศูนย์ข้อมูลที่ปรึกษา สำนักงานบริหารหนี้สาธารณะ กระทรวงการคลัง<small>ประเภทที่ปรึกษาอิสระ · หนังสือรับรองเลขที่ 349/2566 ลงวันที่ 19 มิถุนายน 2566</small></dt><dd>เลขที่ 5674 · ระดับ 3</dd></div>
       <div class="row"><dt>เครือข่ายที่ปรึกษา SP<small>กรมส่งเสริมอุตสาหกรรม กระทรวงอุตสาหกรรม</small></dt><dd>สมาชิก</dd></div>
       <div class="row"><dt>สมาชิก Thaisp</dt><dd>56 W 75</dd></div>
       <div class="row"><dt>โครงการ SME COACH<small>สำนักงานส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อม (สสว.)</small></dt><dd>เลขสมาชิก 204</dd></div>
